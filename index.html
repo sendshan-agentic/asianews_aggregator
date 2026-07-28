@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AsiaNews - Launch</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: linear-gradient(135deg, #f97316 0%, #ffffff 50%, #16a34a 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .card {
+      background: white;
+      border-radius: 16px;
+      padding: 48px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+      text-align: center;
+      max-width: 480px;
+      width: 90%;
+    }
+    .flags { font-size: 48px; margin-bottom: 16px; }
+    h1 { font-size: 36px; color: #171717; margin-bottom: 8px; }
+    h1 span { color: #f97316; }
+    p { color: #6b7280; margin-bottom: 32px; font-size: 16px; }
+    .links { display: flex; flex-direction: column; gap: 12px; }
+    a {
+      display: block;
+      padding: 14px 24px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 16px;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    a:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+    .primary { background: #f97316; color: white; }
+    .secondary { background: #f3f4f6; color: #374151; }
+    .status { margin-top: 24px; font-size: 13px; color: #9ca3af; }
+    .dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 6px; }
+    .dot.green { background: #16a34a; }
+    .dot.red { background: #dc2626; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="flags">🇮🇳 🌏</div>
+    <h1>Asia<span>News</span></h1>
+    <p>Your premier source for news from India and across Asia</p>
+    <div class="links">
+      <a href="http://localhost:3000" class="primary">Open App →</a>
+      <a href="http://localhost:3000/regions" class="secondary">Browse Regions</a>
+      <a href="http://localhost:3000/search" class="secondary">Search News</a>
+      <a href="http://localhost:3000/latest" class="secondary">Latest News</a>
+    </div>
+    <div class="status" id="status">
+      <span class="dot green"></span> Dev server running on localhost:3000
+    </div>
+  </div>
+
+  <script>
+    // Server status is checked via the button links
+  </script>
+</body>
+</html>
