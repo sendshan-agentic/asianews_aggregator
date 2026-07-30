@@ -7,6 +7,9 @@ const parser = new Parser({
   headers: {
     'User-Agent': 'AsiaNews Aggregator/1.0',
   },
+  customFields: {
+    item: ['media:content', 'media:thumbnail', 'content:encoded'],
+  },
 });
 
 function categorizeArticle(title: string, description: string): NewsCategory {
@@ -38,6 +41,13 @@ function extractImageFromContent(content?: string): string | undefined {
   return match ? match[1] : undefined;
 }
 
+function extractImage(item: any): string | undefined {
+  if (item['media:content']?.['$']?.url) return item['media:content']['$'].url;
+  if (item['media:thumbnail']?.['$']?.url) return item['media:thumbnail']['$'].url;
+  if (item.enclosure?.url) return item.enclosure.url;
+  return extractImageFromContent(item['content:encoded'] || item.content);
+}
+
 function cleanHtml(html: string): string {
   return html.replace(/<[^>]*>/g, '').substring(0, 200) + '...';
 }
@@ -59,7 +69,7 @@ export async function fetchNewsFromSource(sourceId: string): Promise<NewsArticle
         description: cleanHtml(description),
         content: item.content,
         url: item.link || source.url,
-        imageUrl: item.enclosure?.url || extractImageFromContent(item.content) || 
+        imageUrl: extractImage(item) || 
           `https://picsum.photos/seed/${sourceId}${index}/800/400`,
         source: source.name,
         sourceLogo: source.logo,
