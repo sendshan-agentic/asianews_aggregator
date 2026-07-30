@@ -4,7 +4,7 @@ import CategoryFilter from '@/components/CategoryFilter';
 import RegionFilter from '@/components/RegionFilter';
 import Link from 'next/link';
 import { TrendingUp, Clock, Globe } from 'lucide-react';
-
+export const revalidate = 300
 export default async function HomePage() {
   const articles = await fetchAllNews();
   const featuredArticle = articles[0];
