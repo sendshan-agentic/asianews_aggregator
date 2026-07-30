@@ -5,7 +5,7 @@ import CategoryFilter from '@/components/CategoryFilter';
 import { NewsCategory } from '@/types/news';
 import { notFound } from 'next/navigation';
 import { Metadata } from 'next';
-
+export const revalidate = 300
 interface CategoryPageProps {
   params: Promise<{ slug: string }>;
 }
