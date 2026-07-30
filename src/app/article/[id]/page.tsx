@@ -7,7 +7,7 @@ import { Clock, ExternalLink, ArrowLeft } from 'lucide-react';
 import { formatDistanceToNow } from 'date-fns';
 import { notFound } from 'next/navigation';
 import { Metadata } from 'next';
-
+export const revalidate = 300
 interface ArticlePageProps {
   params: Promise<{ id: string }>;
 }
