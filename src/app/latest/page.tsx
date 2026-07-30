@@ -2,7 +2,7 @@ import { fetchAllNews } from '@/lib/news';
 import NewsCard from '@/components/NewsCard';
 import CategoryFilter from '@/components/CategoryFilter';
 import { Metadata } from 'next';
-
+export const revalidate = 300
 export const metadata: Metadata = {
   title: 'Latest News - AsiaNews',
   description: 'The latest news from India and Asia',
