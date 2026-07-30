@@ -2,7 +2,7 @@ import { searchNews } from '@/lib/news';
 import NewsCard from '@/components/NewsCard';
 import SearchBar from '@/components/SearchBar';
 import { Metadata } from 'next';
-
+export const revalidate = 300
 interface SearchPageProps {
   searchParams: Promise<{ q?: string }>;
 }
