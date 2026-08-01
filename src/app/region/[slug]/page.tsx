@@ -5,7 +5,7 @@ import RegionFilter from '@/components/RegionFilter';
 import { Region } from '@/types/news';
 import { notFound } from 'next/navigation';
 import { Metadata } from 'next';
-
+export const revalidate = 300;
 interface RegionPageProps {
   params: Promise<{ slug: string }>;
 }
