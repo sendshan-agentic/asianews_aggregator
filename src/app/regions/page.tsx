@@ -1,7 +1,7 @@
 import { REGIONS } from '@/lib/constants';
 import Link from 'next/link';
 import { Metadata } from 'next';
-
+export const revalidate = 300
 export const metadata: Metadata = {
   title: 'Regions - AsiaNews',
   description: 'Browse news by region across Asia',
