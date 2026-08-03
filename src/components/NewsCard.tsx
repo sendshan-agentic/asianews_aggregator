@@ -12,6 +12,11 @@ interface NewsCardProps {
   variant?: 'default' | 'compact' | 'featured';
 }
 
+function getImageSrc(url?: string): string {
+  if (!url) return '/placeholder-news.jpg';
+  return `/api/image-proxy?url=${encodeURIComponent(url)}`;
+}
+
 export default function NewsCard({ article, variant = 'default' }: NewsCardProps) {
   const timeAgo = formatDistanceToNow(new Date(article.publishedAt), { addSuffix: true });
 
@@ -21,7 +26,7 @@ export default function NewsCard({ article, variant = 'default' }: NewsCardProps
         <article className="relative bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300">
           <div className="relative h-64 md:h-96">
             <Image
-              src={article.imageUrl || '/placeholder-news.jpg'}
+              src={getImageSrc(article.imageUrl)}
               alt={article.title}
               fill
               className="object-cover group-hover:scale-105 transition-transform duration-300"
@@ -55,7 +60,7 @@ export default function NewsCard({ article, variant = 'default' }: NewsCardProps
         <article className="flex space-x-4 p-3 rounded-lg hover:bg-gray-50 transition-colors">
           <div className="relative w-20 h-20 flex-shrink-0 rounded-lg overflow-hidden">
             <Image
-              src={article.imageUrl || '/placeholder-news.jpg'}
+              src={getImageSrc(article.imageUrl)}
               alt={article.title}
               fill
               className="object-cover"
@@ -81,7 +86,7 @@ export default function NewsCard({ article, variant = 'default' }: NewsCardProps
       <article className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-all duration-300 h-full flex flex-col">
         <div className="relative h-48">
           <Image
-            src={article.imageUrl || '/placeholder-news.jpg'}
+            src={getImageSrc(article.imageUrl)}
             alt={article.title}
             fill
             className="object-cover group-hover:scale-105 transition-transform duration-300"
